@@ -9,4 +9,4 @@
 
 echo "hello world"
 echo -e "line1\nline2"
-echo "lin 3"
+echo -e "line1\tline2\tline3"
