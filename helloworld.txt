@@ -1,3 +1,0 @@
-#!/bin/bash
-#code to display hello world
-echo "hello world"

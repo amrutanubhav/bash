@@ -1,1 +1,1 @@
-# bash
+# this is a folder for all bash scripting
