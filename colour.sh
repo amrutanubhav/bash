@@ -13,4 +13,4 @@ echo -e "\e[33m i am printing yellow colour \e[0m"
 echo -e "\e[34m i am printing blue colour \e[0m"
 
 #print background color "\e[41;33m ..... [0m"
-echo -e "\e[41;33m this is test for background color [0m"
+echo -e "\e[41;33m this is test for background color \e[0m"
