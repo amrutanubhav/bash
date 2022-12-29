@@ -3,9 +3,10 @@
 #escape sequence
 #newline \n
 #tabspace \t
+# -e is to enable escape sequence
 
 
 
 echo "hello world"
-echo line1\nline2
+echo -e "line1\nline2"
 echo "lin 3"
