@@ -3,3 +3,4 @@
 echo "hello world"
 echo "line1"
 echo "line2"
+echo "lin 3"
