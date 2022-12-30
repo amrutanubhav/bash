@@ -1,9 +1,8 @@
 #!/bin/bash
 
-yum install nginx -y >> /tmp/nginx.log
-yum install nginx -t 2> /tmp/error.log
-yum install nginx -y 2>> /tmp/error.log
-yum install nginx -y > /tmp/nginx.log
+yum install -y >> /tmp/nginx.log
+sudot 2> /tmp/error.log
+
 
 # > : standard out put and overwrite
 # >> : standard out put and append
@@ -11,3 +10,4 @@ yum install nginx -y > /tmp/nginx.log
 # 2>> : standard error and append
 # &> : redirects both std o/p and i/p and overwrites
 # &>> : redirects bot std o/p and i/p and appends
+# < : input redirection
