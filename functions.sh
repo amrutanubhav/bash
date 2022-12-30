@@ -2,7 +2,7 @@
 
 stat() {
 
-echo "number of open sessions is : $(\e[41;32m $(who | wc -l) \e[0m)"
+echo "number of open sessions is : $(who | wc -l)"
 echo "total number of users loggedin is: $(uptime | awk -F, '{print $2}')"
 echo "date is : $(date +%F)"
 
