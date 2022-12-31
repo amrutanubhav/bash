@@ -12,6 +12,6 @@ case $action in
         echo "we are stopping"
         ;;
      *)
-       echo " please enter valid option"
+       echo -e " e\[32m please enter valid option e\[0m"
        ;;
 esac  
