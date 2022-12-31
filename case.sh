@@ -11,4 +11,7 @@ case $action in
      stop)
         echo "we are stopping"
         ;;
+     *)
+       echo " please enter valid option"
+       ;;
 esac  
