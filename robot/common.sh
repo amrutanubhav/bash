@@ -1,3 +1,5 @@
+#!/bin/bash
+
 logfile=/tmp/$component.log
 stat(){
 

@@ -1,7 +1,9 @@
 #!/bin/bash
 
 set -e
+
 component=mongodb
+
 source common.sh
 
 echo -n " Downloading $component repo"
