@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 component=frontend
-source robot/common.sh
+
+source common.sh
 
 echo -n "Installing NGINX: "
 yum install nginx -y    &>> $logfile
