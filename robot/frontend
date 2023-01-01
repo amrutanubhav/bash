@@ -1,7 +1,8 @@
 #!/bin/bash
 
-UID=$(id -u)
-if [ $UID -ne 0 ]; then
+ID=$(id -u)
+
+if [ $ID -ne 0 ]; then
 
 echo -e "\e[31m Please use root account or sudo priveledge to proceed further \e[0m"
 exit 1
