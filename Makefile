@@ -3,6 +3,6 @@ frontend:
 
 mongodb:
 	bash robot/mongodb.sh
-	
+
 catalogue:
-    bash robot/catalogue.sh
+	bash robot/catalogue.sh
