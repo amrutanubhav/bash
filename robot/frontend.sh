@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 component=frontend
-logfile=/tmp/frontend.log
+logfile=/tmp/$component.log
 stat(){
 
 if [ $1 -eq 0 ]; then
