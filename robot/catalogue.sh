@@ -1,16 +1,15 @@
 #!/bin/bash
-set -e
 
 component=catalogue
 
 source robot/common.sh
 
 echo -n "Downloading $component setup: "
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> $logfile
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> ${logfile}
 stat $?
 
 echo -n "Installing nodejs app: "
-yum install nodejs -y &>> $logfile
+yum install nodejs -y &>> ${logfile}
 stat $?
 
 echo -n "Adding service account $user "
