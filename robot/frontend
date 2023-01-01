@@ -7,6 +7,6 @@ echo -e "\e[31m Please use root account or sudo priveledge to proceed further \e
 
 fi
 
-yum install nginx -y
-systemctl enable nginx
-systemctl start nginx
+yum install nginx -y    >> /tmp/frontend.log
+systemctl enable nginx  >> /tmp/frontend.log
+systemctl start nginx   >> /tmp/frontend.log
