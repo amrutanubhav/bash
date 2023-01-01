@@ -1,25 +1,7 @@
 #!/bin/bash
 set -e
 component=frontend
-logfile=/tmp/$component.log
-stat(){
-
-if [ $1 -eq 0 ]; then
-  echo -e "\e[32m success \e[0m"
-else
-  echo -e "\e[31m failure \e[0m"
-fi
-
-}
-
-ID=$(id -u)
-
-if [ $ID -ne 0 ]; then
-
-echo -e "\e[31m Please use root account or sudo privilege to proceed further \e[0m"
-exit 1
-
-fi
+source common.sh
 
 echo -n "Installing NGINX: "
 yum install nginx -y    &>> $logfile
