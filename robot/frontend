@@ -1,5 +1,12 @@
 #!/bin/bash
 
+UID=$(id -u)
+if [ $UID -ne 0 ]; then
+
+echo -e "\e[31m Please use root account or sudo priveledge to proceed further \e[0m"
+
+fi
+
 yum install nginx -y
 systemctl enable nginx
 systemctl start nginx
