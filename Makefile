@@ -12,3 +12,6 @@ redis:
 
 user:
 	bash robot/user.sh
+
+cart:
+	bash robot/cart.sh
