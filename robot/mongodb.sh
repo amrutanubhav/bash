@@ -9,13 +9,16 @@ stat $?
 
 echo -n " Installing $component repo"
 yum install -y mongodb-org &>> ${logfile}
-systemctl enable mongod &>> ${logfile}
-systemctl start mongod &>> ${logfile}
 stat $?
 
 echo -n "allow to external for $component"
  sed -e -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>> ${logfile}
  stat $?
+
+echo -n "Enable and start $component"
+systemctl enable mongod &>> ${logfile}
+systemctl start mongod &>> ${logfile}
+stat $?
 
 echo -n "Downloading the $component schema: "
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip" &>> ${logfile}
