@@ -43,14 +43,14 @@ cd /home/$user/$component/
 npm install &>> ${logfile}
 stat $?
 
-# echo -n "update systemd service for $component: "
-# sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$user/$component/systemd.service
-# sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$user/$component/systemd.service
-# mv /home/$user/$component/systemd.service /etc/systemd/system/$component.service
-# stat $?
+echo -n "update systemd service for $component: "
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/$user/$component/systemd.service
+sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$user/$component/systemd.service
+mv /home/$user/$component/systemd.service /etc/systemd/system/$component.service
+stat $?
 
-# echo -n "enable and restart $component: "
-# systemctl daemon-reload &>> ${logfile} 
-# systemctl enable $component.service &>> ${logfile}
-# systemctl restart $component.service -l &>> ${logfile}
-# stat $?
+echo -n "enable and restart $component: "
+systemctl daemon-reload &>> ${logfile} 
+systemctl enable $component.service &>> ${logfile}
+systemctl restart $component.service -l &>> ${logfile}
+stat $?
