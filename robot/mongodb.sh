@@ -17,8 +17,8 @@ stat $?
 
 echo -n "Enable and start $component"
 systemctl daemon-reload
-systemctl enable mongod &>> ${logfile}
-systemctl start mongod &>> ${logfile}
+systemctl enable mongod
+systemctl restart mongod
 stat $?
 
 echo -n "Downloading the $component schema: "
