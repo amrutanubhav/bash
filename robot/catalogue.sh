@@ -32,6 +32,15 @@ cd /home/$user
 unzip -o /tmp/$component.zip &>> ${logfile}
 stat $?
 
-# $ mv catalogue-main catalogue
-# $ cd /home/roboshop/catalogue
+echo -n "Changing the ownership to $user"
+
+mv /home/$user/$component-main $component
+chown $user:$user /home/$user/$component
+
+stat $?
+
+
+
+
+#cd /home/roboshop/catalogue
 # $ npm install
