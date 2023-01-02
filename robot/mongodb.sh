@@ -13,6 +13,10 @@ systemctl enable mongod &>> ${logfile}
 systemctl start mongod &>> ${logfile}
 stat $?
 
+echo -n "allow to external for $component"
+ sed -e -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>> ${logfile}
+ stat $?
+
 echo -n "Downloading the $component schema: "
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip" &>> ${logfile}
 stat $?
@@ -21,6 +25,7 @@ echo -n "Extracting the $component schema file"
  cd /tmp
  unzip -o mongodb.zip &>> ${logfile}
  stat $?
+
 
  echo -n "Injecting the schema : "
  cd mongodb-main 
