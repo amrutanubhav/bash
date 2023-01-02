@@ -5,7 +5,7 @@ component=redis
 source robot/common.sh
 
 echo -n "downloading $component repository: "
-curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo
+curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo &>>${logfile}
 stat $?
 
 echo -n "Installing $component : "
