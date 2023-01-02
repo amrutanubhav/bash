@@ -6,3 +6,6 @@ catalogue:
 
 mongodb:
 	bash robot/mongodb.sh
+
+redis:
+	bash robot/redis.sh
