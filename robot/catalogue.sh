@@ -12,14 +12,26 @@ echo -n "Installing nodejs app: "
 yum install nodejs -y &>> ${logfile}
 stat $?
 
+
+id $user &>> ${logfile}
+
+if [ $? -ne 0 ]; then
+
 echo -n "Adding service account $user "
-useradd $user
+useradd $user &>> ${logfile}
 stat $?
 
+fi
 
-# $ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
-# $ cd /home/roboshop
-# $ unzip /tmp/catalogue.zip
+echo -n "downloading the $component"
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" &>> ${logfile}
+stat $?
+
+echo -n "Extracting $component"
+cd /home/$user
+unzip -o /tmp/$component.zip &>> ${logfile}
+stat $?
+
 # $ mv catalogue-main catalogue
 # $ cd /home/roboshop/catalogue
 # $ npm install
