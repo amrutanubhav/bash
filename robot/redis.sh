@@ -13,8 +13,8 @@ yum install redis-6.2.7 -y &>> ${logfile}
 stat $?
 
 echo -n "update BindIP of $component: "
-sed -i -e 's/127.0.0.1/0.0.0.0/g' vim /etc/$component.conf
-sed -i -e 's/127.0.0.1/0.0.0.0/' vim /etc/$component/$component.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/$component.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/$component/$component.conf
 stat $?
 
 echo -n "enable and restart $component: "
