@@ -12,8 +12,8 @@ yum install -y mongodb-org &>> ${logfile}
 stat $?
 
 echo -n "allow to external for $component"
- sed -e -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>> ${logfile}
- stat $?
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+stat $?
 
 echo -n "Enable and start $component"
 systemctl enable mongod &>> ${logfile}
