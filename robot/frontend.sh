@@ -13,8 +13,8 @@ systemctl enable nginx  &>> ${logfile}
 systemctl start nginx   &>> ${logfile}
 stat $?
 
-echo -n "Downloading frontend file : "
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip" &>> ${logfile}
+echo -n "Downloading $component file : "
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/$component/archive/main.zip" &>> ${logfile}
 stat $?
 
 echo -n "Clearing default content: "
