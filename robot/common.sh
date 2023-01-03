@@ -75,6 +75,11 @@ mv /home/$user/$component-main $component
 chown -R $user:$user /home/$user/$component
 stat $?
 
+echo -n "Generate artifacts for $component: "
+cd /home/$user/$component/
+npm install &>> ${logfile}
+stat $?
+
 }
 
 UPDATE_DNS() {
