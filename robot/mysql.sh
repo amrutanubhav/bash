@@ -29,3 +29,26 @@ echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';"| mysql --connec
 stat $?
 
 fi
+
+echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password; &>> &{logfile}
+if [ $? -eq 0 ]
+
+echo -n "uninstalling Validate password plugin from $component: "
+echo 'uninstall plugin validate_password;' | mysql -uroot -pRoboShop@1 &>> ${logfile}
+stat $?
+
+fi
+
+echo -n "downloading schema for $component: "
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip"
+stat $?
+
+echo -n "Unzip and inject schema to $component: "
+
+cd /tmp
+unzip mysql.zip
+cd mysql-main
+mysql -u root -pRoboShop@1 <shipping.sql
+
+stat $?
+
