@@ -105,17 +105,23 @@ stat $?
 
 JAVA() {
 
+echo -n "Installing maven and java for $component: "
 yum install maven -y &>> ${logfile}
+stat $?
 
 ADD_VALIDATE_USER
 
+echo -n " Dowloading archive , unzipping it and generating artifacts for $component:"
+
 cd /home/roboshop
-curl -s -L -o /tmp/shipping.zip "https://github.com/stans-robot-project/shipping/archive/main.zip" &>> ${logfile}
-unzip /tmp/shipping.zip &>> ${logfile}
-mv shipping-main shipping
-cd shipping
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip" &>> ${logfile}
+unzip /tmp/$component.zip &>> ${logfile}
+mv $component-main $component
+cd $component
 mvn clean package &>> ${logfile}
 mv target/shipping-1.0.jar shipping.jar
+
+stat $?
 
 UPDATE_DNS
 
