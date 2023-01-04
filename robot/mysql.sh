@@ -34,7 +34,7 @@ echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password; &>> ${lo
 if [ $? -eq 0 ]; then
 
 echo -n "uninstalling Validate password plugin from $component: "
-echo 'uninstall plugin validate_password;' | mysql -uroot -pRoboShop@1 &>> ${logfile}
+echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1 &>> ${logfile}
 stat $?
 
 fi
@@ -46,7 +46,7 @@ stat $?
 echo -n "Unzip and inject schema to $component: "
 
 cd /tmp
-unzip $component.zip
+unzip -o $component.zip
 cd $component-main
 mysql -u root -pRoboShop@1 <shipping.sql &>> ${logfile}
 
