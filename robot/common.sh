@@ -111,9 +111,11 @@ stat $?
 
 ADD_VALIDATE_USER
 
-echo -n " Dowloading archive , unzipping it and generating artifacts for $component:"
+echo -n " cleanup , Dowloading archive , unzipping it and generating artifacts for $component:"
 
-cd /home/roboshop
+rm -rf /home/$user/$component
+
+cd /home/$user
 curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip" &>> ${logfile}
 unzip /tmp/$component.zip &>> ${logfile}
 mv $component-main $component
