@@ -18,3 +18,6 @@ cart:
 
 mysql:
 	bash robot/mysql.sh
+
+shipping:
+	bash robot/shipping.sh
