@@ -21,5 +21,5 @@ DEF_PASS=$(sudo cat /var/log/mysqld.log | grep 'A temporary password' | awk '{pr
 stat $?
 
 echo -n "change default password for $component: "
-echo 'ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';'| mysql -uroot --connect-expired-password -p${DEF_PASS} &>> ${logfile}
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';"| mysql --connect-expired-password -uroot -p${DEF_PASS} &>> ${logfile}
 stat $?
