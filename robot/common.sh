@@ -85,7 +85,7 @@ stat $?
 UPDATE_DNS() {
 
 echo -n "update systemd service for $component: "
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/$user/$component/systemd.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' /home/$user/$component/systemd.service
 mv /home/$user/$component/systemd.service /etc/systemd/system/$component.service
 stat $?
 
@@ -100,5 +100,23 @@ systemctl daemon-reload &>> ${logfile}
 systemctl enable $component.service &>> ${logfile}
 systemctl restart $component.service -l &>> ${logfile}
 stat $?
+
+}
+
+JAVA() {
+
+yum install maven -y &>> ${logfile}
+
+ADD_VALIDATE_USER
+
+cd /home/roboshop
+curl -s -L -o /tmp/shipping.zip "https://github.com/stans-robot-project/shipping/archive/main.zip" &>> ${logfile}
+unzip /tmp/shipping.zip &>> ${logfile}
+mv shipping-main shipping
+cd shipping
+mvn clean package &>> ${logfile}
+mv target/shipping-1.0.jar shipping.jar
+
+UPDATE_DNS
 
 }

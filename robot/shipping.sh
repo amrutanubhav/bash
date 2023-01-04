@@ -1,2 +1,7 @@
 #!/bin/bash
-echo "im shipping"
+
+component=shipping
+
+source robot/common.sh
+
+JAVA
