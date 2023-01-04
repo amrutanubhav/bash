@@ -16,3 +16,10 @@ systemctl enable mysqld
 systemctl start mysqld
 stat $?
 
+echo -n "Fetch default password for $component: "
+DEF_PASS=$(sudo cat /var/log/mysqld.log | grep 'A temporary password' | awk '{print $NF}')
+stat $?
+
+echo -n "change default password for $component: "
+echo 'ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';' | mysql -uroot -p${DEF_PASS} &>> ${logfile}
+stat $?
