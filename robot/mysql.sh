@@ -30,7 +30,7 @@ stat $?
 
 fi
 
-echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password; &>> &{logfile}
+echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password; &>> ${logfile}
 if [ $? -eq 0 ]
 
 echo -n "uninstalling Validate password plugin from $component: "
