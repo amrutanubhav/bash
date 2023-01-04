@@ -40,15 +40,15 @@ stat $?
 fi
 
 echo -n "downloading schema for $component: "
-curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip"
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip" &>> ${logfile}
 stat $?
 
 echo -n "Unzip and inject schema to $component: "
 
 cd /tmp
-unzip mysql.zip
-cd mysql-main
-mysql -u root -pRoboShop@1 <shipping.sql
+unzip $component.zip
+cd $component-main
+mysql -u root -pRoboShop@1 <shipping.sql &>> ${logfile}
 
 stat $?
 
