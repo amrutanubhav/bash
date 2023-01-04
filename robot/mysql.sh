@@ -20,7 +20,7 @@ echo -n "Fetch default password for $component: "
 DEF_PASS=$(sudo cat /var/log/mysqld.log | grep 'A temporary password' | awk '{print $NF}')
 stat $?
 
-mysql -uroot -pRoboShop@1 &>> ${logfile}
+echo show databses | mysql -uroot -pRoboShop@1 &>> ${logfile}
 
 if [ $? -ne 0 ]; then
 
