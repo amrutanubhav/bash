@@ -128,3 +128,31 @@ stat $?
 UPDATE_DNS
 
 }
+
+PYTHON() {
+
+echo -n "Install python 3 for $component: "
+yum install python36 gcc python3-devel -y &>> ${logfile}
+stat $?
+
+ADD_VALIDATE_USER
+
+DOWNLOAD_COMPONENT
+
+echo -n "cleanup and Extracting $component: "
+rm -rf /home/$user/$component
+cd /home/$user
+unzip -o /tmp/$component.zip &>> ${logfile}
+stat $?
+
+echo -n "Changing the ownership to $user: "
+mv /home/$user/$component-main $component
+chown -R $user:$user /home/$user/$component
+stat $?
+
+echo -n "install dependancies for $component: "
+cd /home/$user/$component
+
+pip3 install -r requirements.txt &>> ${logfile}
+
+}

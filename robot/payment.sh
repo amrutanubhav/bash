@@ -1,2 +1,5 @@
 #!/bin/bash
-echo "im payment"
+component=payment
+source robot/common.sh
+
+PYTHON
