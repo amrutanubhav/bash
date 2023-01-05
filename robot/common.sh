@@ -137,7 +137,9 @@ stat $?
 
 ADD_VALIDATE_USER
 
-DOWNLOAD_COMPONENT
+echo -n "downloading the $component"
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip" &>> ${logfile}
+stat $?
 
 echo -n "cleanup and Extracting $component: "
 rm -rf /home/$user/$component
