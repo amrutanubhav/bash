@@ -22,7 +22,7 @@ stat $?
 
 sudo rabbitmqctl list_users | grep roboshop
 
-if [ $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
 echo -n "create application user for $component: "
 rabbitmqctl add_user roboshop roboshop123 &>> ${logfile}
 stat $?
