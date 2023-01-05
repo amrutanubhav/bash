@@ -15,9 +15,9 @@ yum install $component-server -y &>> ${logfile}
 stat $?
 
 echo -n "enable and start $component: "
-systemctl enable rabbitmq-server 
-systemctl start rabbitmq-server
-systemctl status rabbitmq-server -l
+systemctl enable rabbitmq-server &>> ${logfile}
+systemctl start rabbitmq-server &>> ${logfile}
+systemctl status rabbitmq-server -l &>> ${logfile}
 stat $?
 
 echo -n "create application use for $component: "
