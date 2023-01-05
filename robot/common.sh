@@ -155,4 +155,6 @@ cd /home/$user/$component
 
 pip3 install -r requirements.txt &>> ${logfile}
 
+stat $?
+
 }
