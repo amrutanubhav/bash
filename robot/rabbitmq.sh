@@ -20,11 +20,12 @@ systemctl start rabbitmq-server &>> ${logfile}
 systemctl status rabbitmq-server -l &>> ${logfile}
 stat $?
 
-echo -n "create application use for $component: "
+echo -n "create application user for $component: "
+rabbitmqctl add_user roboshop roboshop123 &>> ${logfile}
+stat $?
 
-rabbitmqctl add_user roboshop roboshop123  
-rabbitmqctl set_user_tags roboshop administrator
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
-
+echo -n "set permissions for application user: "
+rabbitmqctl set_user_tags roboshop administrator &>> ${logfile}
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> ${logfile}
 stat $?
 
