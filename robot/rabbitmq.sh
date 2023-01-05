@@ -20,7 +20,7 @@ systemctl start rabbitmq-server &>> ${logfile}
 systemctl status rabbitmq-server -l &>> ${logfile}
 stat $?
 
-sudo rabbitmqctl list_users | grep roboshop
+sudo rabbitmqctl list_users | grep roboshop &>> ${logfile}
 
 if [ $? -ne 0 ]; then
 echo -n "create application user for $component: "
