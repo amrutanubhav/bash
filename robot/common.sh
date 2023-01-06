@@ -96,8 +96,8 @@ ENABLE_RESTART
 ENABLE_RESTART() {
 
 echo -n "enable and restart $component: "
-systemctl daemon-reload &>> ${logfile} 
-systemctl enable $component.service &>> ${logfile}
+systemctl daemon-reload
+systemctl enable $component.service
 systemctl restart $component.service -l &>> ${logfile}
 stat $?
 
