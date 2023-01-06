@@ -14,5 +14,7 @@ sed -i -e "/^gid/ c gid=${grp_id}" /home/$user/$component/$component.ini
 
 stat $?
 
+UPDATE_DNS
 
+ENABLE_RESTART
 
