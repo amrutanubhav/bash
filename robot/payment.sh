@@ -16,5 +16,4 @@ stat $?
 
 UPDATE_DNS
 
-ENABLE_RESTART
 
