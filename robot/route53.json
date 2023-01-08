@@ -4,12 +4,12 @@
       {
         "Action": "UPSERT",
         "ResourceRecordSet": {
-          "Name": "DNS domain name",
+          "Name": "component.roboshop.internal",
           "Type": "A",
           "TTL": 10,
           "ResourceRecords": [
             {
-              "Value": "applicable value for the record type"
+              "Value": "ipaddress"
             },
             {...}
           ]
