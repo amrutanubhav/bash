@@ -9,4 +9,4 @@ echo "Fetching sec grp id:  $sec_grp_id "
 
 echo "launch instance using ami id and sec grp id "
 
-# aws ec2 run-instances --image-id ${ami_id} --instance-type t3.micro --security-group-ids ${sec_grp_id} --tag-specification "ResourceType=instance,Tags=[{Key=name,Value=${component}}]" | jq
+aws ec2 run-instances --image-id ${ami_id} --instance-type t3.micro --security-group-ids ${sec_grp_id} --tag-specification "ResourceType=instance,Tags=[{Key=name,Value=${component}}]" | jq
