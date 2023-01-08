@@ -17,5 +17,5 @@ echo "Please find the Private Ip address for the $component : $Priv_IP"
 
 sed -e "s/component/$component' -e 's/ipaddress/$Priv_IP" /home/centos/bash/robot/route53.json > /tmp/r53.json
 
-echo "Allocating DNS record for the component: "
+echo "Allocating DNS record for the $component "
 aws route53 change-resource-record-sets --hosted-zone-id $Hosted_zid --change-batch file:///tmp/r53.json
