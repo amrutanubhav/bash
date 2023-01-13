@@ -5,7 +5,6 @@ ami_id=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-Cen
 sec_grp_id=$(aws ec2 describe-security-groups --filters Name=group-name,Values=Batch52-securitygroup --region us-east-1 | jq .SecurityGroups[].GroupId | sed -e 's/"//g')
 Hosted_zid="Z02177131QU6HVDVL4864"
 
-
 echo "Fetching ami id : $ami_id"
 echo "Fetching sec grp id:  $sec_grp_id "
 
