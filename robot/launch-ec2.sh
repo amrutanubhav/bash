@@ -10,7 +10,7 @@ echo "Fetching sec grp id:  $sec_grp_id "
 
 echo "launch instance using ami id and sec grp id "
 
-Priv_IP=$(aws ec2 run-instances --image-id ${ami_id} --instance-type t3.micro --security-group-ids ${sec_grp_id} --tag-specification "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')
+Priv_IP=$(aws ec2 run-instances --image-id ${ami_id} --instance-type t3.micro --security-group-ids ${sec_grp_id} --tag-specification "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
 echo "Please find the Private Ip address for the $component : $Priv_IP"
 
