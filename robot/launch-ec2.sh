@@ -16,5 +16,5 @@ Priv_IP=$(aws ec2 run-instances --image-id ${ami_id} --instance-type t3.micro --
 echo "Please find the Private Ip address for the $component : $Priv_IP"
 echo "Allocating DNS record for the $component "
 
-sed -e "s/component/$component/" -e "s/ipaddress/$Priv_IP/" /home/centos/bash/robot/route53.json >> /tmp/r53.json
+sed -e "s/component/$component/" -e "s/ipaddress/$Priv_IP/" /home/centos/bash/robot/route53.json > /tmp/r53.json
 aws route53 change-resource-record-sets --hosted-zone-id $Hosted_zid --change-batch file:///tmp/r53.json
