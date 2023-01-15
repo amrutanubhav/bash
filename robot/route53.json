@@ -1,18 +1,11 @@
 {
-    "Comment": "optional comment about the changes in this change batch request",
-    "Changes": [
-      {
-        "Action": "UPSERT",
-        "ResourceRecordSet": {
-          "Name": "component.roboshop.internal",
-          "Type": "A",
-          "TTL": 10,
-          "ResourceRecords": [
-            {
-              "Value": "ipaddress"
-            },
-          ]
-        }
-      },
-    ]
-  }
+  "Comment": "Creating or Updating the record",
+  "Changes": [{
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "component.roboshop.internal",
+        "Type": "A",
+        "TTL": 10,
+        "ResourceRecords": [{"Value": "ipaddress"}]
+      }}]
+}
