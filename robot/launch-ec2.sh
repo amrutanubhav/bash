@@ -20,7 +20,7 @@ launchec2 () {
 echo "launching instance using ami id and sec grp id "
 echo -e "...........\e[31m $component-$env launch in progress.............."
 
-Priv_IP=$(aws ec2 run-instances --image-id ${ami_id} --instance-type t3.micro --security-group-ids ${sec_grp_id} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}-${env}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
+Priv_IP=$(aws ec2 run-instances --image-id ${ami_id} --instance-type t3.medium --security-group-ids ${sec_grp_id} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}-${env}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
 echo "Please find the Private Ip address for the $component-$env : $Priv_IP"
 echo "Allocating DNS record for the $component-$env "
