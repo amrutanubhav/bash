@@ -31,9 +31,9 @@ aws route53 change-resource-record-sets --hosted-zone-id $Hosted_zid --change-ba
 
 }
 
-if [$1 == "all" ]; then
+if [$1=="all"]; then
    for component in cart catalogue mongodb mysql payment rabbitmq redis user shipping; do
-comp=$component
+# comp=$component
 launchec2
 done
 else
