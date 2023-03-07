@@ -2,15 +2,16 @@
 
 component=$1
 env=$2
+Hosted_zid="Z02177131QU6HVDVL4864"
+
 
 if [ -z "$component" ] || [ -z "$env" ]; then 
     echo -e "\e[31m Component name is required \n Sample Usage: \n\n\t\t bash launch-ec2.sh componentName envName  \e[0m"
     exit 1
 fi 
 
-ami_id=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" --region us-east-1 | jq .Images[].ImageId | sed -e 's/"//g')
+ami_id="ami-0bf57d297734fa3e9" #$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" --region us-east-1 | jq .Images[].ImageId | sed -e 's/"//g')
 sec_grp_id=$(aws ec2 describe-security-groups --filters Name=group-name,Values=Batch52-securitygroup --region us-east-1 | jq .SecurityGroups[].GroupId | sed -e 's/"//g')
-Hosted_zid="Z02177131QU6HVDVL4864"
 
 echo -e "Fetching ami id : \e[32m $ami_id \e[0m"
 echo -e "Fetching sec grp id: \e[32m  $sec_grp_id \e[0m"
